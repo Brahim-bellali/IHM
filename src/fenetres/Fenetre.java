@@ -1,46 +1,62 @@
 package fenetres;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Fenetre extends JFrame {
 public Fenetre(Dimension dimension, Color color) {
 	setSize(dimension);
 	setLocationRelativeTo(null);
-	
-	//Centrer la fenêtre
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	getContentPane().setBackground(color);
-	
-	
 	//Définir la disposition
 	getContentPane().setLayout(new BorderLayout());
-	
-	
-	
-	
-	//Créer des panneaux
-	JPanel nord=new JPanel();nord.setBackground(Color.blue);
-	JPanel sud=new JPanel();sud.setBackground(Color.yellow);
-	JPanel est=new JPanel();est.setBackground(Color.green);
-	JPanel ouest=new JPanel();ouest.setBackground(Color.RED);           ouest.setPreferredSize(new Dimension(150, getHeight()));
-	JPanel centre=new JPanel();centre.setBackground(Color.WHITE);
-	
-	
-	//Ajouter les panneaux à la fenêtre
-	getContentPane().add(nord,BorderLayout.NORTH);
-	getContentPane().add(sud,BorderLayout.SOUTH);
-	getContentPane().add(est,BorderLayout.EAST);
-	getContentPane().add(ouest,BorderLayout.WEST);
-	getContentPane().add(centre,BorderLayout.CENTER);
+	// Create a border for panels
+    Border panelBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
+
+    // Create panels with borders
+    JPanel nord = new JPanel();
+    nord.setBackground(Color.blue);
+    nord.setPreferredSize(new Dimension(dimension.width, 50));
+    nord.setBorder(panelBorder);
+
+    JPanel sud = new JPanel();
+    sud.setBackground(Color.yellow);
+    sud.setPreferredSize(new Dimension(dimension.width, 50));
+    sud.setBorder(panelBorder);
+
+    JPanel est = new JPanel();
+    est.setBackground(Color.green);
+    est.setPreferredSize(new Dimension(100, dimension.height - 100));
+    est.setBorder(panelBorder);
+
+    JPanel ouest = new JPanel();
+    ouest.setBackground(Color.RED);
+    ouest.setPreferredSize(new Dimension(100, dimension.height - 100));
+    ouest.setBorder(panelBorder);
+
+    JPanel centre = new JPanel();
+    centre.setBackground(Color.WHITE);
+    centre.setBorder(panelBorder);
+    
+    JTextField nom=new JTextField();
+    JButton btn=new JButton("Ajouter");
+    centre.add(nom);centre.add(btn);
+    
+    // No preferred size needed, it will take the remaining space
+
+    // Add panels to the window
+    getContentPane().add(nord, BorderLayout.NORTH);
+    getContentPane().add(sud, BorderLayout.SOUTH);
+    getContentPane().add(est, BorderLayout.EAST);
+    getContentPane().add(ouest, BorderLayout.WEST);
+    getContentPane().add(centre, BorderLayout.CENTER);
+
 	setVisible(true);
 }
 }
