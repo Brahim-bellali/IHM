@@ -14,17 +14,27 @@ import javax.swing.JTextField;
 public class Fenetre extends JFrame {
 public Fenetre(Dimension dimension, Color color) {
 	setSize(dimension);
-	setLocationRelativeTo(null);//Centrer la fenêtre
+	setLocationRelativeTo(null);
+	
+	//Centrer la fenêtre
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	getContentPane().setBackground(color);
+	
+	
 	//Définir la disposition
 	getContentPane().setLayout(new BorderLayout());
+	
+	
+	
+	
 	//Créer des panneaux
 	JPanel nord=new JPanel();nord.setBackground(Color.blue);
 	JPanel sud=new JPanel();sud.setBackground(Color.yellow);
 	JPanel est=new JPanel();est.setBackground(Color.green);
-	JPanel ouest=new JPanel();ouest.setBackground(Color.RED);
+	JPanel ouest=new JPanel();ouest.setBackground(Color.RED);           ouest.setPreferredSize(new Dimension(150, getHeight()));
 	JPanel centre=new JPanel();centre.setBackground(Color.WHITE);
+	
+	
 	//Ajouter les panneaux à la fenêtre
 	getContentPane().add(nord,BorderLayout.NORTH);
 	getContentPane().add(sud,BorderLayout.SOUTH);
